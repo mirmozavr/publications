@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<h2>Создать публикацию</h2>
+<p style="color: red">{{ error }}</p>
+<form action="/post" method="post">
+    {% csrf_token %}
+
+
+    <div class="form-group">
+        <label for="formGroupExampleInput">Пароль</label>
+        <input type="text" name="password" placeholder="Введите пароль" class="form-control" id="formGroupExampleInput">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Название публикации</label>
+        <input type="text" name="title" placeholder="Введите название публикации" class="form-control"
+               id="formGroupExampleInput2">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Текст публикации</label>
+        <textarea name="text" placeholder="Введите текст публикации" class="form-control"
+                  id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button class="btn btn-info btn-sm">Опубликовать</button>
+
+</form>
+{% endblock %}
+
